@@ -11,6 +11,9 @@ int main()
 	cin >> cad;
 	Arbol arbol;
 	arbol.create(cad, arbol.root);
-	cout << "El resultado es: " << arbol.resolv_cadena(&arbol) << endl;
+	cout << "Inorder Arbol:"<< endl;
+	arbol.inorder(arbol.root);
+	cout << "\nEl resultado es: " << arbol.resolv_cadena(&arbol) << endl;
+	cout << "\nEliminando Arbol: "<< endl;
+	arbol.delete_tree(arbol.root);
 }
-

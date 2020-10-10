@@ -22,7 +22,7 @@ Nodo* Arbol::create(string cad, Nodo* p)
 			p->Lchild = new Nodo;
 			p->Rchild = new Nodo;
 			p->Lchild = create(cad.substr(0, cad.find("*")), p->Lchild); // Partira la cadena a partir del simbolo y le pasara la izquierda al hijo izquierdo del nodo p
-			p->Rchild = create(cad.substr(cad.find("") + 1, cad.length() - cad.find("")), p->Rchild); // Le pasara la parte derecha de la cadena al nodo derecho del nodo p
+			p->Rchild = create(cad.substr(cad.find("*") + 1, cad.length() - cad.find("*")), p->Rchild); // Le pasara la parte derecha de la cadena al nodo derecho del nodo p
 
 		}
 	}
@@ -58,4 +58,21 @@ int Arbol::make_operations(Nodo* p)
 		}
 	}
 
+}
+
+void Arbol::inorder(Nodo* node){
+    if(node != nullptr){
+      inorder(node->Lchild);
+      std::cout<<node->data;
+      inorder(node->Rchild);
+    }
+}
+
+void Arbol::delete_tree(Nodo* node){
+	if(node != nullptr){
+		delete_tree(node->Lchild);
+		delete_tree(node->Rchild);
+		std::cout<<"deleted ";
+		delete node;
+	}
 }

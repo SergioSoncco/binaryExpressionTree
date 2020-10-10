@@ -11,4 +11,6 @@ public:
 	Nodo* create(string cad, Nodo*);
 	int resolv_cadena(Arbol*);
 	int make_operations(Nodo*);
+	void inorder(Nodo*);
+	void delete_tree(Nodo*);
 };
